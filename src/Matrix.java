@@ -5,11 +5,15 @@ public class Matrix {
     public static void main(String[] args) throws Exception 
     {
         Matrix matrix =  new Matrix();
-        int [][] A = {{1,1,1,1},
-                      {1,1,1,1},
-                      {1,1,1,1},
-                      {1,1,1,1}};
-        int [][] C =  matrix.strassen(4, A, A);
+        int [][] A = {{3,0,3,1},
+                      {5,3,1,0},
+                      {3,0,3,1},
+                      {1,2,2,5}};
+        int [][] B = {{2,4,5,2},
+                      {1,3,2,1},
+                      {3,0,5,0},
+                      {0,4,1,4}};
+        int [][] C =  matrix.divideConquer(4, A, B);
         for (int [] row : C)
         {
             System.out.println(Arrays.toString(row));
@@ -67,7 +71,7 @@ public class Matrix {
             int [][] B21 = partition(n, 21, B);
             int [][] B22 = partition(n, 22, B);
 
-            int [][] C11 = addition(divideConquer(n/2, A11, A12), divideConquer(n/2, A12, B21));
+            int [][] C11 = addition(divideConquer(n/2, A11, B11), divideConquer(n/2, A12, B21));
             int [][] C12 = addition(divideConquer(n/2, A11, B12), divideConquer(n/2, A12, B22));
             int [][] C21 = addition(divideConquer(n/2, A21, B11), divideConquer(n/2, A22, B21));
             int [][] C22 = addition(divideConquer(n/2, A21, B12), divideConquer(n/2, A22, B22));
@@ -116,7 +120,7 @@ public class Matrix {
             int [][] S = strassen(n/2, A22, subtraction(B21, B11));
             int [][] T = strassen(n/2, addition(A11, A12), B22);
             int [][] U = strassen(n/2, subtraction(A21, A11), addition(B11, B12));
-            int [][] V = strassen(n/2, subtraction(A21, A22), addition(B11, B12));
+            int [][] V = strassen(n/2, subtraction(A12, A22), addition(B21, B22));
 
             //Calculate C11, C12, C21, C22 from our recursive calls
             int [][] C11 = addition(subtraction(addition(P, S), T), V);
@@ -223,7 +227,7 @@ public class Matrix {
         {
             for(int j = 0; j < n/2; j++)
             {
-                complete[i+2][j] = C11[i][j];
+                complete[i][j+(n/2)] = C12[i][j];
             }
         }
         //repartition C21
@@ -231,7 +235,7 @@ public class Matrix {
         {
             for(int j = 0; j < n/2; j++)
             {
-                complete[i][j+2] = C21[i][j];
+                complete[i+(n/2)][j] = C21[i][j];
             }
         }
         //repartition C22
@@ -239,7 +243,7 @@ public class Matrix {
         {
             for(int j = 0; j < n/2; j++)
             {
-                complete[i+2][j+2] = C22[i][j];
+                complete[i+(n/2)][j+(n/2)] = C22[i][j];
             }
         }
 
