@@ -1,0 +1,7 @@
+Size 2 results: Classical = 363 nanoseconds, Divide and Conquer = 291 nanoseconds, Strassen = 311 nanoseconds
+Size 4 results: Classical = 520 nanoseconds, Divide and Conquer = 2743 nanoseconds, Strassen = 4931 nanoseconds
+Size 8 results: Classical = 959 nanoseconds, Divide and Conquer = 19180 nanoseconds, Strassen = 29527 nanoseconds
+Size 16 results: Classical = 4808 nanoseconds, Divide and Conquer = 136008 nanoseconds, Strassen = 210026 nanoseconds
+Size 32 results: Classical = 31212 nanoseconds, Divide and Conquer = 954097 nanoseconds, Strassen = 1318846 nanoseconds
+Size 64 results: Classical = 230033 nanoseconds, Divide and Conquer = 7627636 nanoseconds, Strassen = 9262282 nanoseconds
+Size 128 results: Classical = 1811827 nanoseconds, Divide and Conquer = 60875074 nanoseconds, Strassen = 65028791 nanoseconds
