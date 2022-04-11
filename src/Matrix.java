@@ -9,7 +9,7 @@ public class Matrix {
         Matrix matrix =  new Matrix();
         Random random = new Random();
         //This will be the amount of trials for randomly generated input data
-        int randomMatrixTrial = 100;
+        int randomMatrixTrial = 500;
         //This will be the amount of trials for the same set of input data
         int sameMatrixTrial = 10;
 
