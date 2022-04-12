@@ -98,11 +98,17 @@ public class Matrix {
     //Classical Matrix Multiplication
     public int[][] classical(int n, int [][] A, int [][] B)
     {
+        //Initailizing return matrix
         int [][] C = new int[n][n];
+
+        //Loop for rows
         for(int i = 0; i < n; i++)
         {
+            //Loop for columns
             for(int j = 0; j < n; j++)
             {
+                //Loop to find the dot product at the position
+                //in return matrix
                 for(int k = 0; k < n; k++)
                 {
                     C[i][j] += A[i][k] * B[k][j];
